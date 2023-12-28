@@ -51,7 +51,9 @@ class ProductProvider extends ChangeNotifier {
             .toList()
             .first;
       } else {}
-    } catch (e) {}
+    } catch (e) {
+      // exceptions has to be handled from here, not implemented.
+    }
     isDetailsLoading = false;
     notifyListeners();
   }
