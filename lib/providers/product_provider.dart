@@ -14,6 +14,7 @@ class ProductProvider extends ChangeNotifier {
   bool isDetailsLoading = false;
   ProductDetailHive? viewingProduct;
   ProductRespository productRespository;
+  bool showMessage = false;
 
   void getAllproducts() async {
     try {
@@ -25,15 +26,18 @@ class ProductProvider extends ChangeNotifier {
         List<dynamic> tempResponse = json.decode(response.data)["product"];
 
         products = tempResponse.map((e) => Product.fromJson(e)).toList();
+      } else {
+// From here we can initiate the error handling. I havent implemented that.
       }
-    } catch (e) {}
+    } catch (e) {
+// From here we can handle the exceptions.
+    }
     isLoading = false;
     notifyListeners();
   }
 
   void getProductById(int id) async {
-    // try
-    {
+    try {
       isDetailsLoading = true;
       await Future.delayed(const Duration(milliseconds: 200));
       notifyListeners();
@@ -41,12 +45,13 @@ class ProductProvider extends ChangeNotifier {
 
       if (response.statusCode == 200) {
         List<dynamic> tempResponse = (response.data)["productdetails"];
-        print(44);
-        viewingProduct =
-            tempResponse.map((e) => ProductDetailHive.fromJson(e)).toList().first;
-        print("45");
-      }
-    }
+
+        viewingProduct = tempResponse
+            .map((e) => ProductDetailHive.fromJson(e))
+            .toList()
+            .first;
+      } else {}
+    } catch (e) {}
     isDetailsLoading = false;
     notifyListeners();
   }

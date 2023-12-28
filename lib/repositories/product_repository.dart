@@ -8,7 +8,7 @@ class ProductRespository {
     try {
       Response response =
           await dio.get(kBaseUrl + kProductUrl, data: {"index": "1"});
-      print(response.data);
+
       return response;
     } catch (e) {
       throw Exception(e);
@@ -19,10 +19,9 @@ class ProductRespository {
     try {
       Response response = await dio
           .post(kBaseUrl + kProductDetailsUrl, data: {"productid": id});
-      print(response.data);
+
       return response;
     } catch (e) {
-      print(e);
       throw Exception(e);
     }
   }
