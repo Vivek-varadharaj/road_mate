@@ -39,21 +39,4 @@ class Product {
   }
 }
 
-// Usage example:
 
-void main() {
-  // Replace this with your actual JSON data
-  Map<String, dynamic> jsonData = {
-    // ... your JSON data ...
-  };
-
-  // Parse the JSON data into a list of Product objects
-  List<Product> products = List.from(jsonData['product'] ?? [])
-      .map((productJson) => Product.fromJson(productJson))
-      .toList();
-
-  // Now you have a list of Product objects
-  for (var product in products) {
-    print(product.productName);
-  }
-}
