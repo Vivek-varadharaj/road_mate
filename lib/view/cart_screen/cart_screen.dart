@@ -9,10 +9,13 @@ class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Cart screen"),
+      ),
       body: SafeArea(
           child: Consumer<CartProvider>(
         builder: (context, value, child) => value.cart.isEmpty
-            ? Center(
+            ? const Center(
                 child: Text("Empty Cart"),
               )
             : ListView.builder(

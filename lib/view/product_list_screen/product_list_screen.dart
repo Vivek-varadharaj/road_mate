@@ -11,6 +11,9 @@ class ProductListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text("Products"),
+      ),
       body: Consumer<ProductProvider>(
           builder: (context, productProvider, child) =>
               productProvider.isLoading
@@ -35,10 +38,10 @@ class ProductListScreen extends StatelessWidget {
                                     backgroundColor: Colors.yellow),
                                 onPressed: () {
                                   Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => CartScreen(),
+                                    builder: (context) => const CartScreen(),
                                   ));
                                 },
-                                child: Text("View Cart")),
+                                child: const Text("View Cart")),
                           ),
                         )
                       ],

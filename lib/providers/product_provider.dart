@@ -2,7 +2,6 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:road_mate/models/product_details_hive.dart';
-import 'package:road_mate/models/product_details_model.dart';
 import 'package:road_mate/models/product_model.dart';
 import 'package:road_mate/repositories/product_repository.dart';
 
@@ -36,7 +35,7 @@ class ProductProvider extends ChangeNotifier {
     // try
     {
       isDetailsLoading = true;
-      await Future.delayed(Duration(milliseconds: 200));
+      await Future.delayed(const Duration(milliseconds: 200));
       notifyListeners();
       Response response = await productRespository.getProductById(id: id);
 
